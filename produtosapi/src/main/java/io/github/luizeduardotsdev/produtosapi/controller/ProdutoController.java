@@ -4,7 +4,6 @@ import io.github.luizeduardotsdev.produtosapi.model.Produto;
 import io.github.luizeduardotsdev.produtosapi.repository.ProdutoRepository;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -33,5 +32,12 @@ public class ProdutoController {
 
         return produtoRepository.findById(id).orElse(null);
     }
+
+    @DeleteMapping("/{id}")
+    public void deletarPorID(@PathVariable("id") String id) {
+        produtoRepository.deleteById(id);
+    }
+
+
 
 }
